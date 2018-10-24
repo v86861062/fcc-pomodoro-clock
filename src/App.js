@@ -127,35 +127,44 @@ class App extends Component {
     const isRunning = timer ? true : false
     console.log(timer)
     return (
-      <div>
-        <TimeSetPanel
-          id="break"
-          lableText="Break Length"
-          length={breakLength}
-          onClick={this.handleLength}
-          stateName="breakLength"
-        />
-        <TimeSetPanel
-          id="session"
-          lableText="Session Length"
-          length={sessionLength}
-          onClick={this.handleLength}
-          stateName="sessionLength"
-        />
+      <div className="app">
+        <div className="right-panel">
+          <TimeSetPanel
+            id="break"
+            lableText="Break Length"
+            length={breakLength}
+            onClick={this.handleLength}
+            stateName="breakLength"
+          />
+        </div>
 
-        <p id="timer-label">{timerState}</p>
-        <p id="time-left">{minute + ":" + second}</p>
-        <button id="start_stop" onClick={this.handleStartStop}>
-          {isRunning ? (
-            <FontAwesomeIcon icon="pause" />
-          ) : (
-            <FontAwesomeIcon icon="play" />
-          )}
-        </button>
-        <button id="reset" onClick={this.handleReset}>
-          <FontAwesomeIcon icon="undo-alt" />
-        </button>
+        <div className="left-panel">
+          <TimeSetPanel
+            id="session"
+            lableText="Session Length"
+            length={sessionLength}
+            onClick={this.handleLength}
+            stateName="sessionLength"
+          />
+        </div>
 
+        <div className="timer">
+          <p id="timer-label">{timerState}</p>
+          <p id="time-left">{minute + ":" + second}</p>
+          <button id="start_stop" onClick={this.handleStartStop}>
+            {isRunning ? (
+              <FontAwesomeIcon icon="pause" />
+            ) : (
+              <FontAwesomeIcon icon="play" />
+            )}
+          </button>
+          <button id="reset" onClick={this.handleReset}>
+            <FontAwesomeIcon icon="undo-alt" />
+          </button>
+
+          <div className="triangle"></div>
+        </div>
+        
         <audio id="beep" src="./BeepSound.wav" preload="true" ref={this.beep} />
       </div>
     )

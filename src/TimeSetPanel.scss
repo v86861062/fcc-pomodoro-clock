@@ -1,0 +1,26 @@
+@import "utilities";
+
+.time-set-panel {
+  width: 200px;
+  font-size: 20px;
+  font-weight: 900;
+  text-align: center;
+  border: 2px solid $border-color;
+  background-color: $background-color;
+  border-radius: 8px;
+
+  button {
+    border-radius: 8px;
+  }
+  .increment-button {
+    float: right;
+    margin-right: 60px;
+  }
+  .decrement-button {
+    float: left;
+    margin-left: 60px;
+  }
+  .time-length {
+    margin-top: -3px;
+  }
+}
